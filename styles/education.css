@@ -1,0 +1,132 @@
+:root {
+    --background-image: url("../images/background-image2.webp");
+
+    --curriculum-form-background: #4E89AA;
+    --curriculum-form-checked: #286a90;
+
+    --curriculum-background-color: #042B46;
+    --curriculum-li-background: #05253D;
+    --curriculum-header-four: #4E89AA;
+    --curriculum-a-hover-color: #4E89AA;
+}
+
+
+:root[data-color-mode="light-mode"] {
+    --background-image: url("../images/background-image2_light.webp");
+
+    --curriculum-form-background: #4E89AA;
+    --curriculum-form-checked: #286a90;
+
+    --curriculum-background-color: #042B46;
+    --curriculum-li-background: #05253D;
+    --curriculum-header-four: #4E89AA;
+    --curriculum-a-hover-color: #4E89AA; 
+}
+
+
+
+
+
+
+
+main > section:first-of-type {
+    background-image: var(--background-image);
+}
+
+
+
+main > section:nth-of-type(2) {
+    background-color: var(--curriculum-background-color);
+    padding: 1em;
+    
+}
+
+
+
+main section:not(section:last-of-type) form {
+	display:flex;
+	gap:1em;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+main section:not(section:last-of-type) form label {
+	background-color:var(--curriculum-form-background);
+	padding:.5em 1em;
+	border-radius:.5em;
+	
+	cursor:pointer;
+}
+
+main section:not(section:last-of-type) form label:has(:focus-visible) {
+	box-shadow:0 0 0 .2em var(--focus-color);
+}
+
+main section:not(main > section:last-of-type) form label:has(:checked) {
+	font-weight:bold;
+	background-color:var(--curriculum-form-checked);
+}
+
+main section:not(section:last-of-type) form label input {
+	position:absolute;
+	left:-9999em;
+}
+
+
+
+main > section > section {
+	position:absolute;
+	left:-9999em;
+    /* background-color: yellow; */
+}
+
+/* zorgt ervoor dat de titel weg gaat voor visueel, maar voor screenreaders blijft staan */
+main > section > section > h3 {
+    position: absolute;
+    left: -999px;
+}
+
+main > section:nth-of-type(2) li {
+    text-align: left;
+    list-style: none;
+}
+
+main > section > section > section {
+    background-color: var(--curriculum-li-background);
+    border-radius: 1em;
+
+    padding: 1em;
+}
+
+main > section > section > section h4 {
+    color: var(--curriculum-header-four);
+    letter-spacing: .3em;
+    font-size: 2em;
+    text-align: center;
+}
+
+main > section > section > section a {
+    display: block;
+
+    color: var(--text-color);
+    text-decoration: none;
+    line-height: 1.6em;
+}
+
+main > section > section > section a:hover {
+    background-color: var(--curriculum-a-hover-color);
+}
+
+main > section > section > section a::after {
+    content: " (pdf)";
+}
+
+main > section:has( [value="k2"]:checked ) [data-courses="k2"],
+main > section:has( [value="3-5"]:checked ) [data-courses="3-5"],
+main > section:has( [value="6-8"]:checked ) [data-courses="6-8"],
+main > section:has( [value="stem"]:checked ) [data-courses="stem"] {
+	position:static;
+	left:unset;
+}
+
+
